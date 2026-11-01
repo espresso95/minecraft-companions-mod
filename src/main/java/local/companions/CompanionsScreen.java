@@ -28,6 +28,7 @@ final class CompanionsScreen extends CompanionScreen {
         roster = addDrawableChild(new OptionList(client, 10, 39, side, height - 81, name -> { select(name.isEmpty() ? null : name); clearAndInit(); }));
         updateRoster(); roster.setScrollY(previousScroll);
         add = button("Add agent", 10, height - 33, side, () -> client.setScreen(new AddAgentScreen(this)));
+        button("Connection", width - 194, 10, 82, () -> client.setScreen(new PairingScreen()));
         button("Host settings", width - 108, 10, 94, () -> client.setScreen(new HostSettingsScreen(this)));
         primary = button("Start", width - 132, 35, 76, this::primaryAction);
         more = button("More", width - 52, 35, 38, () -> { if (selected != null) client.setScreen(new AgentMenuScreen(this, selected)); });

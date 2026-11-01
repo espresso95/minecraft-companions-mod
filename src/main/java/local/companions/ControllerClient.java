@@ -91,8 +91,11 @@ final class ControllerClient {
             synchronized (this) {
                 if (version != stateVersion) return;
                 fetching = false;
-                if (failure != null) error = message(failure);
-                else { state = result; error = null; }
+                if (failure != null) { state = new JsonObject(); catalog = new JsonObject(); error = message(failure); }
+                else {
+                    if (!text(catalog, "version", "").equals(text(result, "modelCatalogVersion", ""))) catalog = new JsonObject();
+                    state = result; error = null;
+                }
             }
         });
     }

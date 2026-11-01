@@ -8,7 +8,7 @@ The Mac mini runs Minecraft's server, the controller and the AI agents. The lapt
 
 1. On the Mac mini, run `npm run companions` in the harness to start the server and agents without opening a Minecraft client. Open the web UI at **http://127.0.0.1:8767**, pair using the code printed in the terminal, then turn **Host settings → Access → LAN sharing** on. Note the listed Minecraft address, control URL and pairing code. The Mac mini's in-game panel can also enable sharing if you use a client there.
 2. On the laptop, install **Minecraft Java 1.21.6**, **Fabric Loader 0.20.1** and **Fabric API 0.128.2+1.21.6** in the same launcher instance.
-3. Download `companion-mailbox-0.1.0+1.21.6.jar` from [Releases](https://github.com/espresso95/minecraft-companions-mod/releases/latest) and put it in that instance's `mods` folder alongside Fabric API. Remove older companion JARs from that folder, then restart Minecraft.
+3. Download `companion-mailbox-0.1.1+1.21.6.jar` from [Releases](https://github.com/espresso95/minecraft-companions-mod/releases/latest) and put it in that instance's `mods` folder alongside Fabric API. Remove older companion JARs from that folder, then restart Minecraft.
 4. Join the Mac mini's listed Minecraft address. Press **K**. The control URL is normally filled from the server address with port **8767**. Enter the host's pairing code and choose **Pair this device**.
 
 The laptop then has the same shared agent, mailbox, Work, model, skin, difficulty and token controls. Trusted paired devices can manage all shared settings, including LAN sharing and device revocation. Only the permanent owner credential stays on the Mac mini. **Revoke devices** invalidates device pairings while keeping that owner credential valid. The pairing is saved on the laptop, separately for each server.
@@ -36,3 +36,7 @@ GitHub Actions builds the client and server plugin on each push to `main`. A `v*
 - `src/gametest`: client UI checks against harness fixtures.
 
 MIT licensed. See [LICENSE](LICENSE).
+
+Model and effort choices come from the host controller, including signed-in Claude Code models. The panel refreshes those choices when the host catalog changes; no provider list is compiled into the mod.
+
+If the controller address changes, use **K → Connection** to pair again. An unreachable controller clears cached roster/work data instead of displaying it as current state.
