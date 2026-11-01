@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "companion_mailbox",
+  "version": "${version}",
+  "name": "Companion Mailbox",
+  "description": "Local Minecraft companions: mailbox, agent controls and reported token usage. Open with K.",
+  "authors": ["espresso95"],
+  "contact": {
+    "sources": "https://github.com/espresso95/minecraft-companions-mod",
+    "issues": "https://github.com/espresso95/minecraft-companions-mod/issues"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": { "client": ["local.companions.CompanionMailbox"] },
+  "mixins": ["companion_mailbox.mixins.json"],
+  "depends": { "fabricloader": ">=0.16.14", "minecraft": "1.21.6", "java": ">=21", "fabric-api": "*" }
+}

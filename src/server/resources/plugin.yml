@@ -1,0 +1,9 @@
+name: CompanionRules
+version: '0.1.0'
+main: local.companions.server.CompanionRules
+api-version: '1.21.6'
+description: Persistent local difficulty and permanent-death rules.
+commands:
+  companionsrules:
+    description: Local companion controller server rules.
+    usage: /companionsrules status | set <difficulty> <true|false>
