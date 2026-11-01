@@ -10,7 +10,8 @@ import java.util.concurrent.*;
 
 final class ControllerClient {
     private final net.minecraft.client.MinecraftClient client = net.minecraft.client.MinecraftClient.getInstance();
-    private final HttpClient http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(2)).build();
+    // The LAN relay supports HTTP/1.1 and rejects h2c upgrade requests.
+    private final HttpClient http = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1).connectTimeout(Duration.ofSeconds(2)).build();
     private URI endpoint;
     private String token;
     volatile JsonObject state = new JsonObject();
